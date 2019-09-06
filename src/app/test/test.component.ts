@@ -9,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
     </h2>
     <button (click)="onClick($event)">Greet</button>
     {{greeting}}
+    <input #myInput type="text">
+    <button (click)="logMessage(myInput.value)">Log</button>
+    <input [(ngModel)]="testText" type="text">
+    {{testText}}
   `,
   // styleUrls: ['./test.component.scss']
   styles: [`
@@ -28,6 +32,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+  public testText = '';
   public name = 'Habib';
   public myId = 'testId';
   public isDisabled = true;
@@ -47,8 +52,6 @@ export class TestComponent implements OnInit {
    "text-special": this.isSpecial
   }
 
-  //Angular 8 Tutorial - 7 - Class Binding
-
 
   constructor() { }
 
@@ -64,4 +67,8 @@ export class TestComponent implements OnInit {
     console.log(event);
   }
 
+  logMessage(value) {
+    console.log(value);
+  }
+  // Angular 8 Tutorial - 12 - ngIf Directive
 }
